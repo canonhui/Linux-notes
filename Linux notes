@@ -1,0 +1,52 @@
+更新内核教程（我很可能挖了一个坑）：
+https://favoorr.github.io/2017/02/11/update-kernel-for-ubuntu/
+
+获得程序进程号(PID)：ps -A |grep 程序名
+强制结束程序：kill -9 PID
+
+运行C:
+gcc -o hello -hello.c
+./hello
+
+更新所有软件：sudo apt-get upgrade
+rename a file: mv source dest
+
+edit a read only file: sudo gedit <filename>
+
+Ubuntu(or linux?)以'.'开头的文件和文件夹是隐藏的，要显示它们有两种方法：
+	1. ctrl+H
+	2. ls -la
+
+以下命令向user-dirs.conf文件写入 enabled=false 内容。若文件已存在，则会覆盖原有的内容，否则创建一个新文件：
+echo "enabled=false" > /home/DRIO/user-dirs.conf
+
+Start XAMPP: sudo /opt/lampp/lampp start
+Start the graphical tool: sudo /opt/lampp/./manager-linux-x64.run
+Stop XAMPP: sudo /opt/lampp/lampp stop
+
+复制一个目录及其内含的所有目录和文件：cp -r <source> <dest>
+如果只复制一个文件：cp <source> <dest>
+
+删除文件夹及其所有文件：rm -r <dirname> 
+
+改变文件或文件夹所有者以及群组所有者（可选）：chown <username:groupname> <folder or file>
+使用参数 -R 对文件夹里面的所有内容执行改变。
+
+返回上一级目录：cd ..
+
+切换 python2 和 python3（方法３）: http://itcoding.tk/2016/06/19/python-alternatives/
+启动ipython: python3 -m IPython -反正被我乱七八糟弄完之后就只能这样启动了。。。
+貌似pip3 和 pip　都是指 pip3
+
+分别以只读形式访问C盘和D盘：
+	mount -t ntfs-3g -o ro /dev/sda3 /media/windows
+	mount -t ntfs-3g -o ro /dev/sda5 /media/Hard-D
+
+In unix (Linux, Mac OS X, BSD etc) systems, ports less than 1024 can not be bound to by normal users, only the root user can bind to those ports.
+
+环境变量：永久的－临时的；系统－用户
+	/etc/profile 中的变量对所有用户生效，且是永久的
+	/.bash_profile 中的变量只对当前用户生效，也是永久的
+	在终端中定义变量，只对当前 shell有效
+	变量定义语法：export var_name=var_value
+	想要定义的永久变量立即生效，需运行：source file_name
